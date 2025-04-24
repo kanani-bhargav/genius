@@ -26,14 +26,10 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build
-    - name: Restart or Start App with PM2
-      run: |
-          npm install -g pm2
-          if pm2 list | grep -q "my-app"; then
-            echo "App is already running. Restarting..."
-            pm2 restart my-app
-          else
-            echo "App not found. Starting..."
-            pm2 start dist/index.js --name "my-app"
-          fi
+    - run: |
+        npm install -g pm2
+        cd /home/ubuntu/actions-runner/_work/genius/genius
+        pm2 delete my-app || true
+        pm2 start dist/index.js --name "my-app"
+        pm2 save
         
