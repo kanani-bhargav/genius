@@ -1,0 +1,25 @@
+# Node modules
+node_modules/
+
+# Output directories
+dist/
+build/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Env files
+.env
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
